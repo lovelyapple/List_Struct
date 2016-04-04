@@ -1,0 +1,49 @@
+#include <iostream>
+
+// vectorを使えるようにする
+#include<vector>
+using namespace std;
+
+// 長さ10のchar型vectorを作る
+vector<char>   vect(10);
+
+//
+// vectorの中身を表示する(イタレーター使用)
+void disp1(void)
+{
+    vector<char>::iterator   itr    = vect.begin();
+    vector<char>::iterator   itrEnd = vect.end();
+
+    cout << "vector   ";
+
+    for( ; itr != itrEnd ; itr++ )
+	{
+		printf("  %c",*(itr));
+	}
+
+    //    cout << *itr << " ";
+    cout << endl;
+}
+void disp2(void)
+{
+	cout<<"vector ";
+	for(int i= 0; i < vect.size();i++)
+	{
+		cout <<vect.at(i) << " ";
+	}
+	cout << endl;
+}
+void main(void)
+{
+	int i;
+	for(i = 0; i< 10; i++)
+	{
+		vect.at(i) = 'A'+i;
+	}
+	disp1();
+	disp2();
+
+	rewind(stdin);
+	getchar();
+
+}
